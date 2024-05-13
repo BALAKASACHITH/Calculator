@@ -7,6 +7,11 @@ let h=document.querySelector(".history");
 let cal=document.querySelector(".cal");
 let cose=document.querySelector(".cls");
 let hisdata=document.querySelector(".hdata");
+let historyClear=document.querySelector(".hisclear");
+historyClear.addEventListener("click",()=>{
+    hisdata.innerText="";
+    history=[];
+});
 cose.addEventListener("click",()=>{
     cal.style.zIndex="2";
 });
@@ -16,7 +21,7 @@ h.addEventListener("click",()=>{
     let ind=1;
     history.forEach((l)=>{
         histring+=`${ind}) ${l}`;
-        histring+="\n";
+        histring+="\n-------------------------------------\n";
         ind++;
     });
     hisdata.innerText=histring;
@@ -27,6 +32,8 @@ let final=[];
 let history=[];
 let x=0;
 function finish(){
+    sfinal=[];
+    x=0;
     for(let i=0;i<data.length;i++){
         if(data[i]!="+"&&data[i]!="-"&&data[i]!="x"&&data[i]!="/"&&data[i]!="%"){
             if(sfinal[x]==undefined)
@@ -39,6 +46,7 @@ function finish(){
             x++;
         }
     }
+    final=[];
     for(let i=0;i<sfinal.length;i++){
         if(sfinal[i]!="+"&&sfinal[i]!="-"&&sfinal[i]!="x"&&sfinal[i]!="/"&&sfinal[i]!="%")
         final[i]=parseFloat(sfinal[i]);
@@ -86,17 +94,15 @@ function rlt(){
         }
     }
     r=final[0];
-    data=[];
-    sfinal=[];
-    final=[];
 }
 res.addEventListener("click",()=>{
-    finish();
-    rlt();
-    console.log(r);
-    if(s.innerText.length!=0)
-    s.innerText+="="+r;
-    history.push(s.innerText);
+    if(!(s.innerText.includes('='))){
+        finish();
+        rlt();
+        if(s.innerText.length!=0)
+        s.innerText+="="+r;
+        history.push(s.innerText);
+    }
 });
 s.innerText="";
 let str="";
@@ -106,14 +112,13 @@ del.addEventListener("click",function(){
     s.innerText=str;
     data.pop();
 });
-clr.addEventListener("click",function(){
+function clearing(){
     s.innerText="";
     data=[];
     sfinal=[];
     final=[];
-    r=0;
-    console.log("history : ",history);
-});
+}
+clr.addEventListener("click",clearing);
 function f(){
     if(this.getAttribute("class")=="op keys num divi"){
         data.push("/");

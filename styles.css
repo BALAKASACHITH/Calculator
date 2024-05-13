@@ -3,6 +3,29 @@
     padding: 0;
     box-sizing: border-box;
 }
+@media (max-width:600px) {
+    .cal{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .his{
+        position: absolute;
+        top: 15vh;
+        left: 40vw;
+    }
+}
+.hnav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.hisclear{
+    height: 5vh;
+    border: 1vh solid black;
+    border-radius: 10vh;
+    width: 20vh;
+}
 .hdata{
     overflow-x: auto;
     margin-left: 3%;
