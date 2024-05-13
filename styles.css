@@ -3,18 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-@media (max-width:600px) {
-    .cal{
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-    .his{
-        position: absolute;
-        top: 15vh;
-        left: 40vw;
-    }
-}
 .hnav{
     display: flex;
     flex-direction: row;
