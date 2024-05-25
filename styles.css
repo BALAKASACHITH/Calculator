@@ -32,6 +32,12 @@
     border-radius: 10vh;
     width: 20vh;
 }
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 .his{
     display: flex;
     flex-direction: column;
@@ -42,12 +48,10 @@
     background-color: black;
     border: 1vh solid grey;
     border-radius: 5vh;
-    position: absolute;
-    top: 15vh;
-    left: 40vw;
     font-size: 6vh;
     z-index: 1;
     color: white;
+    transform: translate(50%,0);
 }
 .cal{
     height: 70vh;
@@ -56,10 +60,8 @@
     background-color: grey;
     border: 1vh solid black;
     border-radius: 5vh;
-    position: absolute;
-    top: 15vh;
-    left: 40vw;
     font-size: 6vh;
+    transform: translate(-50%,0);
 }
 .screen{
     overflow-x: auto;
