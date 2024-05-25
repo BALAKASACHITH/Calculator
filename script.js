@@ -107,10 +107,12 @@ res.addEventListener("click",()=>{
 s.innerText="";
 let str="";
 del.addEventListener("click",function(){
-    str=s.innerText;
-    str=str.slice(0,str.length-1);
-    s.innerText=str;
-    data.pop();
+    if(!(s.innerText.includes("="))){
+        str=s.innerText;
+        str=str.slice(0,str.length-1);
+        s.innerText=str;
+        data.pop();
+    }
 });
 function clearing(){
     s.innerText="";
